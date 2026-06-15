@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FAF8F3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1F1F1E" media="(prefers-color-scheme: dark)" />
+
+    <title>Lexify — Remember every English word</title>
+    <meta
+      name="description"
+      content="Lexify helps Vietnamese English learners build lasting vocabulary with FSRS spaced repetition. Save words from anywhere, review 5 minutes a day — on Chrome and Android."
+    />
+    <meta property="og:title" content="Lexify — Remember every English word" />
+    <meta
+      property="og:description"
+      content="FSRS-powered spaced repetition for Vietnamese English learners. Browser extension + Android app, synced through one account."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Set theme before paint to avoid a flash of the wrong color scheme. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('lexify-theme')
+          var dark = stored ? stored === 'dark'
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+          if (dark) document.documentElement.classList.add('dark')
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
